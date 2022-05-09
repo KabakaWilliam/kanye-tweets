@@ -29,6 +29,10 @@ const Home: NextPage = () => {
     getKanyeTweet();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {}, 3000);
+  }, []);
+
   return (
     <div className="bg-black">
       <Head>
@@ -43,7 +47,7 @@ const Home: NextPage = () => {
       <div
         className={` w-screen h-screen flex items-center justify-center bg-[url(https://media3.giphy.com/media/RlwF2vFb4y7bDnWvcO/giphy.gif?cid=ecf05e47fd6lkme4yjafbpbu51vl3n2k754387jmqdll4k5f&rid=giphy.gif&ct=g)] bg-cover `}
       >
-        <div className="border border-[#2F3336] w-[300px] md:w-[600px] h-max md:h-max rounded-lg px-3 py-3 flex flex-col gap-y-2">
+        <div className="border border-[#2F3336] w-[300px] md:w-[600px] h-max md:h-max rounded-lg px-3 py-3 flex flex-col gap-y-2 hover:bg-[#9ed5f024]">
           {/* top profile info */}
           <div className="w-[100%] h-[20%]   flex ">
             <div className="w-[50%] h-[100%] flex ">
