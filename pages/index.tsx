@@ -10,7 +10,7 @@ import {
   ReplyIcon,
 } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
-import { db } from "../lib/firebase";
+import { analytics } from "../lib/firebase";
 
 const Home: NextPage = () => {
   interface tweet {
