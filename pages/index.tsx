@@ -116,7 +116,12 @@ const Home: NextPage = () => {
                 }
                 className="h-5 text-[#71767b] group-hover:rounded-full group-hover:text-green-300  cursor-pointer"
               />
-              <span className="group-hover:text-green-300 group-hover:underline cursor-pointer">
+              <span
+                onClick={() =>
+                  navigator.clipboard.writeText(String(window.location.href))
+                }
+                className="group-hover:text-green-300 group-hover:underline cursor-pointer"
+              >
                 Copy Link
               </span>
             </div>
