@@ -14,13 +14,13 @@ import {
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
+  apiKey: "AIzaSyAlR9H46YkdXEfrXWZm3Fym2BCoEjDgiTw",
+  authDomain: "ye-tweets.firebaseapp.com",
+  projectId: "ye-tweets",
+  storageBucket: "ye-tweets.appspot.com",
+  messagingSenderId: "540623232437",
+  appId: "1:540623232437:web:5424924280a376b384cdfc",
+  measurementId: "G-8MQFWMQWND",
 };
 
 function createFirebaseApp(config: any) {
