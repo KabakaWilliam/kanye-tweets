@@ -68,7 +68,7 @@ const Home: NextPage = () => {
         {/* bg wrapper */}
         <div className={BACKGROUND ? `block` : `hidden`}>
           <Image
-            src="/giphy.webp"
+            src="/reducedGif.gif"
             layout="fill"
             objectFit="cover"
             quality={100}
