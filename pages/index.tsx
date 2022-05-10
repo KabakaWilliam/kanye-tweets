@@ -7,6 +7,8 @@ import {
   ChatIcon,
   HeartIcon,
   LinkIcon,
+  PhotographIcon,
+  RefreshIcon,
   ReplyIcon,
 } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
@@ -17,6 +19,7 @@ const Home: NextPage = () => {
     quote: string;
   }
   const [tweet, setTweet] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const [BACKGROUND, setBackground] = useState(false);
   const getKanyeTweet = async () => {
     const res = await fetch("https://api.kanye.rest");
@@ -31,11 +34,22 @@ const Home: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {}, 3000);
-  }, []);
+    if (refresh) {
+      getKanyeTweet();
+      setRefresh(false);
+    }
+  }, [refresh]);
+
+  const changeBackground = () => {
+    if (!BACKGROUND) {
+      setBackground(true);
+    } else {
+      setBackground(false);
+    }
+  };
 
   return (
-    <div className="bg-black">
+    <div className="">
       <Head>
         <title>Ye Quotes</title>
         <meta name="description" content="Some gems from Ye" />
@@ -45,10 +59,37 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <div
+      {/* <div
         className={` w-screen h-screen flex items-center justify-center bg-[url(https://media3.giphy.com/media/RlwF2vFb4y7bDnWvcO/giphy.gif?cid=ecf05e47fd6lkme4yjafbpbu51vl3n2k754387jmqdll4k5f&rid=giphy.gif&ct=g)] bg-cover `}
+      > */}
+      <div
+        className={` w-screen h-screen flex items-center justify-center bg-black z-[-1]  `}
       >
-        <div className="border border-[#2F3336] w-[300px] md:w-[600px] h-max md:h-max rounded-lg px-3 py-3 flex flex-col gap-y-2 hover:bg-[#9ed5f024]">
+        {/* bg wrapper */}
+        <div className={BACKGROUND ? `block` : `hidden`}>
+          <Image
+            src="/giphy.webp"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            className="fixed w-screen h-screen overflow-hidden z-[0] "
+          />
+        </div>
+        <div className="z-10 absolute bottom-10">
+          <div className="flex">
+            <PhotographIcon
+              onClick={changeBackground}
+              className="h-10 text-[#a0a0a0] cursor-pointer md:hover:animate-bounce stroke-1"
+            />
+            <RefreshIcon
+              onClick={() => {
+                setRefresh(true);
+              }}
+              className="h-10 text-[#a0a0a0] cursor-pointer md:hover:animate-bounce stroke-1"
+            />
+          </div>
+        </div>
+        <div className="z-10 border border-[#2F3336] w-[300px] md:w-[600px] h-max md:h-max rounded-lg px-3 py-3 flex flex-col gap-y-2 hover:bg-[#9ed5f024]">
           {/* top profile info */}
           <div className="w-[100%] h-[20%]   flex ">
             <div className="w-[50%] h-[100%] flex ">
