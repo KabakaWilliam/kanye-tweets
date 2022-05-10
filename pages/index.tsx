@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { analytics, db } from "../lib/firebase";
 
 const Home: NextPage = () => {
+  analytics;
   interface tweet {
     quote: string;
   }
